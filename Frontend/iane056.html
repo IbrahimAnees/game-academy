@@ -1,0 +1,293 @@
+<!-- Game Academy HTML Code -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- HEAD -->
+    <head>
+        <!-- Title and meta-data -->
+        <title>Game Academy</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="The best website for games!">
+        <meta name="keywords" content="game, academy, chess">
+        <meta name="author" content="Ibrahim Anees">
+
+        <link id="favicon" rel="icon" type="image">
+
+        <!-- CSS stylesheets -->
+        <link rel="stylesheet" href="iane056.css">
+        <style>
+           body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+           body {font-size:16px;}
+        </style>
+
+        <!-- JavaScript file -->
+        <script src = iane056.js></script>
+    </head>
+
+    <!-- BODY -->
+    <body>
+
+
+        <main>
+            <header class="centerText">
+                <h1>Game Academy</h1>
+                <div id="currentUser"></div>
+                <div id="passwordProtected" style="display:none"></div>
+                <button id="logoutButton" onclick="return logout();" style="display:none">Log out</button>
+            </header>
+            <div class="nav">
+                <ul>
+                  <li><a id="homeButton" class="active" href="#" onclick="return showPage('Home', 'homeButton');">HOME 🏠</a></li>
+                  <li><a id="shopButton" href="#" onclick="return showPage('Shop', 'shopButton');">SHOP 🛒</a></li>
+                  <li><a id="registerButton" href="#" onclick="return showPage('Register', 'registerButton');">REGISTER ✍</a></li>
+                  <li><a id="loginButton" href="#" onclick="return showPage('Login', 'loginButton');">LOGIN 👤</a></li>
+                  <li><a id="chessButton" href="#" onclick="return showPage('Chess', 'chessButton');">CHESS ♞</a></li>
+                  <li><a id="guestbookButton" href="#" onclick="return showPage('Guestbook', 'guestbookButton');">GUESTBOOK 🕮</a></li>
+                </ul>
+            </div>
+        </main>
+
+
+        <div id="Home">
+            <img id="Logo" class="logoStyle center">
+            </img>
+            <p class="centerText center homeText">Welcome to Game Academy! We are the best website for all kinds of board games. Our website includes a shop where
+            you can buy items. We also provide the ability for users to play against each other in a game of chess!
+            </p>
+            <p id="version" class="boldText homeText">Version: </p>
+        </div>
+            
+        <div id="Shop" style="display:none">
+            <div class="search centerText">
+                <input id="searchBar" type="text" onkeyup="return updateList();" placeholder="Search...">
+            </div>
+
+            <ul id="dynamicList">
+
+            </ul>
+            <!-- <ul id="dynamicList">
+            <center>
+            <table>
+                <tbody class="centerText">
+                    <tr>
+                        <td id="itemName">Name</td>
+                        <td id="itemPrice">Price</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <img id="itemImage" src="https://cws.auckland.ac.nz/gas/images/Rb.svg"> </img>
+                        </td>
+                        <td id="itemDescription">
+                            Description
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="buyButton">Buy now</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr> -->
+        </ul>
+        </div>
+        </div>
+
+        <div id="Register" class="centerText" style="display:none">
+
+                <div>
+                    <label for="usernameR">Username</label>
+                    <input type="text" id="usernameR">
+                    <span></span>
+                </div>
+                <br>
+                <div>
+                    <label for="passwordR">Password</label>
+                    <input type="password" id="passwordR">
+                    <span></span>
+                </div>
+                <br>
+                <div>
+                    <label for="addressR">Address</label>
+                    <input type="text" id="addressR">
+                    <span></span>
+                </div>
+                <br>
+                <button onclick="return register()" class="button">Register</button>
+      </div>
+
+        <div id="Login" class="centerText" style="display:none">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username">
+                    <span></span>
+                </div>
+                <br>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password">
+                    <span></span>
+                </div>
+                <br>
+                <button onclick="return login()" class="button" type="submit">Login</button>
+        </div>
+
+        <div id="Chess" style="display:none">
+            <center>
+                <table id="chessBoard" class="centerText" style="width:500px; table-layout: fixed;" border="2" cellpadding="14">
+                    <tbody>
+                    <tr>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)" style="background-color:yellow">&nbsp;</td>
+                    <td style="background-color:yellow">a</td>
+                    <td style="background-color:yellow">b</td>
+                    <td style="background-color:yellow">c</td>
+                    <td style="background-color:yellow">d</td>
+                    <td style="background-color:yellow">e</td>
+                    <td style="background-color:yellow">f</td>
+                    <td style="background-color:yellow">g</td>
+                    <td style="background-color:yellow">h</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)" style="background-color:yellow"><img src="https://cws.auckland.ac.nz/gas/images/Bin.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">8</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Rb1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Rb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Nb1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Nb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Bb1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Bb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Qb1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Kb" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Kb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Bb2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Bb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Nb2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Nb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Rb2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Rb.svg"></img></td>
+                    <td style="background-color:yellow"><img id="Qb2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qb.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">7</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb3" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb4" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb5" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb6" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb7" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pb8" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pb.svg"></img></td>
+                    <td style="background-color:yellow"><img id="Qb3" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qb.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">6</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td style="background-color:yellow"><img id="Qb4" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qb.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">5</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td style="background-color:yellow"><img id="Qb5" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qb.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">4</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td style="background-color:yellow"><img id="Qw5" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qw.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">3</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)">&nbsp;</td>
+                    <td style="background-color:yellow"><img id="Qw4" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qw.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">2</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw3" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw4" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw5" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw6" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw7" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Pw8" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Pw.svg"></img></td>
+                    <td style="background-color:yellow"><img id="Qw3" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qw.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td style="background-color:yellow">1</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Rw1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Rw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Nw1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Nw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Bw1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Bw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Qw1" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Kw" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Kw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Bw2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Bw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Nw2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Nw.svg"></img></td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)"><img id="Rw2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Rw.svg"></img></td>
+                    <td style="background-color:yellow"><img id="Qw2" ondragstart="mydragstart(event)" src="https://cws.auckland.ac.nz/gas/images/Qw.svg"></img></td>
+                    </tr>
+                    <tr>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)" style="background-color:yellow"><img src="https://cws.auckland.ac.nz/gas/images/Bin.svg"></img></td>
+                    <td style="background-color:yellow">a</td>
+                    <td style="background-color:yellow">b</td>
+                    <td style="background-color:yellow">c</td>
+                    <td style="background-color:yellow">d</td>
+                    <td style="background-color:yellow">e</td>
+                    <td style="background-color:yellow">f</td>
+                    <td style="background-color:yellow">g</td>
+                    <td style="background-color:yellow">h</td>
+                    <td ondrop="mydrop(event)" ondragover="mydragover(event)" style="background-color:yellow">&nbsp;</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <button id="tryButton" onclick="tryGame()">Try game</button>
+                    <button id="quitButton" onclick="quitGame()" style="display: none;">Quit game</button>
+                    <button id="makeMoveButton" onclick="makeMove()" style="display: none;">Send my move</button>
+                    <button id="getMoveButton" onclick="getMove()" style="display: none;">Get their move</button>
+        </div>
+
+        <div id="Guestbook" style="display:none" class="centerText">
+            <div>
+                <label for="comment">Comment</label>
+                <input type="text" id="comment">
+                <span></span>
+            </div>
+            <br>
+            <div>
+                <label for="nameField">Name</label>
+                <input type="text" id="nameField">
+                <span></span>
+            </div>
+            <br>
+            <button onclick="postComment();" class="button" type="submit">Submit</button>
+            <br>
+            <iframe id="commentFrame" src="https://cws.auckland.ac.nz/gas/api/Comments"></iframe>
+           </div>
+
+
+    </body>
+
+
+
+
+
+
+</html>

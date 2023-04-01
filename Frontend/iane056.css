@@ -1,0 +1,137 @@
+
+  header h1 {
+    font-size: 70px;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+  }
+   
+  .headerBackground {
+    background-color: #444;
+  }
+
+  .nav ul {
+    list-style: none;
+    background-color: #444;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  .nav li {
+    font-size: 8px;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+  }
+   
+  .nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+  }
+   
+  .nav a:hover {
+    background-color: #005f5f;
+  }
+   
+  .nav a.active {
+    background-color: #fff;
+    color: #444;
+    cursor: default;
+  }
+   
+  @media screen and (min-width: 600px) {
+    .nav li {
+      border-bottom: none;
+      width:200px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.4em;
+    }
+   
+    .nav li {
+      display: inline-block;
+      margin-right: -4px;
+    }
+}
+
+.logoStyle {
+  width:100%;
+  max-width: 200px;
+  padding-top: 50px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.homeText {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.boldText {
+  font-weight: bold;
+}
+.yellowS {
+  background-color: yellow;
+}
+
+
+
+/* Style the search box inside the navigation bar */
+.search input[type=text] {
+  padding: 6px;
+  border: none;
+  font-size: 17px;
+  margin-top: 30px;
+  width:500px;
+  border-radius: 5px;
+}
+
+
+table{
+  border-collapse: collapse;
+}
+table,tr,td {
+  border: 1px solid black;
+}
+table.center {
+    margin:auto;
+  }
+tr:nth-of-type(even) td:nth-of-type(odd),tr:nth-of-type(odd) td:nth-of-type(even){
+  color:black;background-color:lightblue;
+}
+tr:nth-of-type(even) td:nth-of-type(even),
+tr:nth-of-type(odd) td:nth-of-type(odd)
+{
+color:black;background-color:white;
+}
+
+
+
+.imageBox {
+  width: 200px;
+}
+
+.buyButton {
+  width:50px
+}
+
